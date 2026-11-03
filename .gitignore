@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.cache/
+# Los PDF de los artículos no se publican: la app usa data/corpus.json, ya extraído
+articulos/

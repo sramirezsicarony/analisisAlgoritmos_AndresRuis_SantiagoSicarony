@@ -1,0 +1,5 @@
+algoritmo,n,m,patron,ocurrencias,comparaciones,preproceso_ms,busqueda_ms
+KMP,20000,20,baaaaaaaaaaaaaaaaaaa,0,20000,0.002936999862868106,1.7608699999982491
+Boyer-Moore,20000,20,baaaaaaaaaaaaaaaaaaa,0,20000,0.009378000413562404,1.7503359999864188
+Rabin-Karp,20000,20,baaaaaaaaaaaaaaaaaaa,0,0,0.005017999683332164,4.732940000394592
+Boyer-Moore (solo carácter malo),20000,20,baaaaaaaaaaaaaaaaaaa,0,399620,0.014096000086283311,36.11796499990305

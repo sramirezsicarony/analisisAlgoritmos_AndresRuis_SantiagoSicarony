@@ -1,0 +1,339 @@
+[
+  {
+    "id": 1,
+    "archivo": "1. Artificial intelligence literacy in higher and adult education A scoping literature review.pdf",
+    "titulo": "Artificial intelligence literacy in higher and adult education: A scoping literature review",
+    "autores": [
+      "Matthias Carl Laupichler",
+      "Alexandra Aster",
+      "Jana Schirch",
+      "Tobias Raupach"
+    ],
+    "abstract": "Since artificial intelligence (AI) is finding its way into more and more areas of everyday life, improving the AI skills of non-experts is important and will become even more relevant in the future. While it is necessary that children learn about the possibilities of AI at an early age, adults in higher education and beyond should also have at least a basic understanding of AI (i.e., AI literacy) to be able to interact effectively with the technology. To evaluate the current state of the literature on AI literacy in higher and adult education, a scoping literature review was conducted with the objective of identifying thematic foci and recent research trends. Ten research databases were searched and out of 902 initial records, 30 studies were identified using predefined eligibility criteria, whereof the content was evaluated in the review. The results indicated that research in this area is still in its infancy and needs refinement in terms of how to define AI literacy in adult education as well as what content should be taught to non-experts. Lastly, several recommendations for research and practice are derived from the results.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 2,
+    "archivo": "2. Systematic literature review on opportunities, challenges, and future research recommendations of artificial intelligence in education.pdf",
+    "titulo": "Systematic literature review on opportunities, challenges, and future research recommendations of artificial intelligence in education",
+    "autores": [
+      "Thomas K.F. Chiu",
+      "Qi Xia",
+      "Xinyan Zhou",
+      "Ching Sing Chai",
+      "Miaoting Cheng"
+    ],
+    "abstract": "Applications of artificial intelligence in education (AIEd) are emerging and are new to researchers and practitioners alike. Reviews of the relevant literature have not examined how AI technologies have been integrated into each of the four key educational domains of learning, teaching, assessment, and administration. The relationships between the technologies and learning outcomes for students and teachers have also been neglected. This systematic review study aims to understand the opportunities and challenges of AIEd by examining the literature from the last 10 years (2012-2021) using matrix coding and content analysis approaches. The results present the current focus of AIEd research by identifying 13 roles of AI technologies in the key educational domains, 7 learning outcomes of AIEd, and 10 major challenges. The review also provides suggestions for future directions of AIEd research.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 3,
+    "archivo": "3. Myths mis and preconceptions of artificial intelligence  A review of the literature.pdf",
+    "titulo": "Myths, mis- and preconceptions of artificial intelligence: A review of the literature",
+    "autores": [
+      "Arne Bewersdorff",
+      "Xiaoming Zhai",
+      "Jessica Roberts",
+      "Claudia Nerdel"
+    ],
+    "abstract": "Artificial Intelligence (AI) is prevalent in nearly every aspect of our lives. However, recent studies have found a significant amount of confusion and misunderstanding surrounding AI. To develop effective educational programs in the field of AI, it is vital to examine and understand learners' pre- and misconceptions as well as myths about AI. This study examined a corpus of 591 studies. 25 relevant studies were identified by applying the following eligibility criteria: English-written original empirical research on education and AI and reporting AI conceptions in a formal learning context. The review found studies from six continents, with the majority conducted in Europe and North America. The studies predominantly focus on the school and university levels. Findings reveal a range of preconceptions, misconceptions, and myths about AI, such as: Learners often have limited understanding of AI on a technical level. They tend to attribute human-like characteristics or attributes to AI systems and may have narrow views of AI's scope, capabilities, and limitations. The review also shows that learners often have binary and unspecific views about the threats, dangers, and benefits of AI. Effective educational programs are key to empower learners' understanding of AI, thus helping them make informed decisions about the integration of AI in our society, rather than being swayed by misinformation and unnecessary fear. This review may help inform the development of more effective teaching and outreach strategies in AI education.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 4,
+    "archivo": "4. Opportunities of artificial intelligence for supporting complex problem solving  Findings from a scoping review.pdf",
+    "titulo": "Opportunities of artificial intelligence for supporting complex problem-solving: Findings from a scoping review",
+    "autores": [
+      "Srecko Joksimovic",
+      "Dirk Ifenthaler",
+      "Rebecca Marrone",
+      "Maarten De Laat",
+      "George Siemens"
+    ],
+    "abstract": "The research objective of this paper is to advance knowledge about the role of artificial intelligence (AI) in complex problem-solving. A problem is complex due to the large number of highly inter-connected variables affecting the problem state. Complex problem-solving situations often change decremental or worsen, forcing a problem solver to act immediately, under considerable time pressure. While research findings support the assumption that (1) affective, (2) (meta-)cognitive, and (3) social processes support complex problem-solving, opportunities of AI for supporting complex problem-solving need to be further investigated. This article presents a scoping review of relevant literature from the last five years. The study included, N = 38 studies for coding and analysis. Our findings show that in addition to the increased number of publications, the current trend suggests increased quality of published work. Human-AI collaboration in complex problem-solving has been explored across a broad variety of AI application domains. However, the four dimensions of complex problem - namely, cognitive, metacognitive, social and affective - have been augmented by AI to a different extent. Although most of the work has been done in the cognitive domain, it is encouraging to see progress across social and affective dimensions as well. Implications for future research and practice are being discussed.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 5,
+    "archivo": "5. Application and theory gaps during the rise of Artificial Intelligence.pdf",
+    "titulo": "Application and theory gaps during the rise of Artificial Intelligence in Education",
+    "autores": [
+      "Xieling Chen",
+      "Haoran Xie",
+      "Di Zou",
+      "Gwo-Jen Hwang"
+    ],
+    "abstract": "Considering the increasing importance of Artificial Intelligence in Education (AIEd) and the absence of a comprehensive review on it, this research aims to conduct a comprehensive and systematic review of influential AIEd studies. We analyzed 45 articles in terms of annual distribution, leading journals, institutions, countries/ regions, the most frequently used terms, as well as theories and technologies adopted. We also evaluated definitions of AIEd from broad and narrow perspectives and clarified the relationship among AIEd, Educational Data Mining, Computer-Based Education, and Learning Analytics. Results indicated that: 1) there was a continuingly increasing interest in and impact of AIEd research; 2) little work had been conducted to bring deep learning technologies into educational contexts; 3) traditional AI technologies, such as natural language processing were commonly adopted in educational contexts, while more advanced techniques were rarely adopted, 4) there was a lack of studies that both employ AI technologies and engage deeply with educational theories. Findings suggested scholars to 1) seek the potential of applying AI in physical classroom settings; 2) spare efforts to recognize detailed entailment relationships between learners' answers and the desired conceptual understanding within intelligent tutoring systems; 3) pay more attention to the adoption of advanced deep learning algorithms such as generative adversarial network and deep neural network; 4) seek the potential of NLP in promoting precision or personalized education; 5) combine biomedical detection and imaging technologies such as electroencephalogram, and target at issues regarding learners' during the learning process; and 6) closely incorporate the application of AI technologies with educational theories.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 6,
+    "archivo": "6. A multi-perspective study on Artificial Intelligence in Education grants, conferences, journals, software tools, institutions, and researchers.pdf",
+    "titulo": "A multi-perspective study on Artificial Intelligence in Education: grants, conferences, journals, software tools, institutions, and researchers",
+    "autores": [
+      "Xieling Chen",
+      "Haoran Xie",
+      "Gwo-Jen Hwang"
+    ],
+    "abstract": "With the rapid development of artificial intelligence (AI) technologies and a continuously growing interest in their application in educational contexts, there has been significant growth in the scientific literature in relation to the application of AI in education (AIEd). This study aims to present multiple perspectives on the development of AIEd in terms of relevant grants, conferences, journals, software tools, article trends, top issues, institutions, and researchers to provide an overview of AIEd for its further development and implementation. With this study, we contribute to the research field by enabling educators and scholars to understand the status and development of relevant grants and publications concerning AIEd. Also, findings concerning active actors can help educators and scholars identify the active researchers and institutions in the research on AIEd. Furthermore, researchers and educators are able to identify relevant journals and be more aware of major issues in AIEd studies. In addition, we also highlight the significance and necessity of the launch of the new Elsevier journal AIEd-related journal named Computers & Education: Artificial Intelligence.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 7,
+    "archivo": "7. Human-centred learning analytics and AI in education  A systematic review.pdf",
+    "titulo": "Human-centred learning analytics and AI in education: A systematic literature review",
+    "autores": [
+      "Riordan Alfredo",
+      "Vanessa Echeverria",
+      "Yueqiao Jin",
+      "Lixiang Yan",
+      "Zachari Swiecki",
+      "Dragan Gašević",
+      "Roberto Martinez-Maldonado"
+    ],
+    "abstract": "The rapid expansion of Learning Analytics (LA) and Artificial Intelligence in Education (AIED) offers new scalable, data-intensive systems but raises concerns about data privacy and agency. Excluding stakeholders - like students and teachers - from the design process can potentially lead to mistrust and inadequately aligned tools. Despite a shift towards human-centred design in recent LA and AIED research, there remain gaps in our understanding of the importance of human control, safety, reliability, and trustworthiness in the design and implementation of these systems. We conducted a systematic literature review to explore these concerns and gaps. We analysed 108 papers to provide insights about i) the current state of human-centred LA/AIED research; ii) the extent to which educational stakeholders have contributed to the design process of human-centred LA/AIED systems; iii) the current balance between human control and computer automation of such systems; and iv) the extent to which safety, reliability and trustworthiness have been considered in the literature. Results indicate some consideration of human control in LA/AIED system design, but limited end-user involvement in actual design. Based on these findings, we recommend: 1) carefully balancing stakeholders' involvement in designing and deploying LA/AIED systems throughout all design phases 2) actively involving target end-users, especially students, to delineate the balance between human control and automation, and 3) exploring safety, reliability, and trustworthiness as principles in future human-centred LA/AIED systems.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 8,
+    "archivo": "8. A systematic review of artificial intelligence techniques for collaborative learning over the past two decades.pdf",
+    "titulo": "A systematic review of artificial intelligence techniques for collaborative learning over the past two decades",
+    "autores": [
+      "Seng Chee Tan",
+      "Alwyn Vwen Yen Lee",
+      "Min Lee"
+    ],
+    "abstract": "This systematic review focuses on publications related to studies of the use of artificial intelligence (AI) for collaborative learning. The use of AI for collaborative learning is a recent phenomenon and a systematic review of such studies is lacking. Following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) protocol, 41 journal articles were shortlisted. These articles were analysed in terms of the contexts of study (year, group size, platforms of interaction, and types of learners). Using a thematic approach, two broad foci and five sub-categories of use of AI for collaborative learning were identified: (1) learning outcomes - (a) collective performances, and (b) content of learning; (2) social interactions and processes - (c) sentiments and emotions, (d) discourse patterns and talk moves, and (e) learner characteristic and behaviours. The AI techniques were coded according to three broad purposes (discovering, learning and reasoning) and nine techniques: clustering, ensemble, regression algorithms, deep learning, decision trees, natural language processing, instance-based, fuzzy logic, and agents. A Sankey diagram was used to depict the relationships among the nine AI techniques to the five sub-categories of how AI was used to support collaborative learning. The gaps in the selected articles and limitations of the current review were discussed to suggest future areas of study.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 9,
+    "archivo": "9. AI technologies for education Recent research  future directions.pdf",
+    "titulo": "AI technologies for education: Recent research & future directions",
+    "autores": [
+      "Ke Zhang",
+      "Ayse Begum Aslan"
+    ],
+    "abstract": "From unique educational perspectives, this article reports a comprehensive review of selected empirical studies on artificial intelligence in education (AIEd) published in 1993-2020, as collected in the Web of Sciences database and selected AIEd-specialized journals. A total of 40 empirical studies met all selection criteria, and were fully reviewed using multiple methods, including selected bibliometrics, content analysis and categorical meta-trends analysis. This article reports the current state of AIEd research, highlights selected AIEd technologies and applications, reviews their proven and potential benefits for education, bridges the gaps between AI technological innovations and their educational applications, and generates practical examples and inspirations for both technological experts that create AIEd technologies and educators who spearhead AI innovations in education. It also provides rich discussions on practical implications and future research directions from multiple perspectives. The advancement of AIEd calls for critical initiatives to address AI ethics and privacy concerns, and requires interdisciplinary and transdisciplinary collaborations in large-scaled, longitudinal research and development efforts.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 10,
+    "archivo": "10. Educational applications of artificial intelligence in simulation-based learning A systematic mapping review.pdf",
+    "titulo": "Educational applications of artificial intelligence in simulation-based learning: A systematic mapping review",
+    "autores": [
+      "Chih-Pu Dai",
+      "Fengfeng Ke"
+    ],
+    "abstract": "The field of education has experienced a transformation as artificial intelligence (AI) becomes increasingly applicable for learning purposes. AI has the potential to transform the social interactions in educational contexts among learners, teachers, and technologies. In this systematic mapping review, we focus on mapping and framing trends for educational applications of AI in simulation-based learning. Fifty-nine studies met the inclusion and exclusion criteria. We coded and analyzed six mapped categories in this literature review: (1) the year-of-study trend, (2) methods, (3) AI technologies, (4) simulation, (5) study trends, and (6) learning principles and theories. To provide nuanced details from the included literature, we also synthesized three thematic trends: (1) AI built in virtual agents for simulation-based learning, (2) AI infused in simulation-based learning with affective computing, and (3) AI leveraged in simulation-based learning for assessments. Trend One builds on a general acknowledgement of virtual agents as a guide for situated learning. Trend Two posits the role of affective states in learning trajectories and suggests the related machine learning approaches. Trend Three discusses machine learning techniques and multimodal computing used for assessment and feedback. The paper concludes with implications and suggestions for research and practice in AI in education using simulation-based learning.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 11,
+    "archivo": "11. A scoping review on how generative artificial intelligence transforms assessment in higher education.pdf",
+    "titulo": "A scoping review on how generative artificial intelligence transforms assessment in higher education",
+    "autores": [
+      "Qi Xia",
+      "Xiaojing Weng",
+      "Fan Ouyang",
+      "Tzung Jin Lin",
+      "Thomas K.F. Chiu"
+    ],
+    "abstract": "Generative artificial intelligence provides both opportunities and challenges for higher education. Existing literature has not properly investigated how this technology would impact assessment in higher education. This scoping review took a forward-thinking approach to investigate how generative artificial intelligence transforms assessment in higher education. We used the PRISMA extension for scoping reviews to select articles for review and report the results. In the screening, we retrieved 969 articles and selected 32 empirical studies for analysis. Most of the articles were published in 2023. We used three levels - students, teachers, and institutions - to analyses the articles. Our results suggested that assessment should be transformed to cultivate students' self-regulated learning skills, responsible learning, and integrity. To successfully transform assessment in higher education, the review suggested that (i) teacher professional development activities for assessment, AI, and digital literacy should be provided, (ii) teachers' beliefs about human and AI assessment should be strengthened, and (iii) teachers should be innovative and holistic in their teaching to reflect the assessment transformation. Educational institutions are recommended to review and rethink their assessment policies, as well as provide more inter-disciplinary programs and teaching.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 12,
+    "archivo": "12. A meta systematic review of artificial intelligence in higher education a call for increased ethics, collaboration, and rigour.pdf",
+    "titulo": "A meta systematic review of artificial intelligence in higher education: a call for increased ethics, collaboration, and rigour",
+    "autores": [
+      "Melissa Bond",
+      "Hassan Khosravi",
+      "Maarten De Laat",
+      "Nina Bergdahl",
+      "Violeta Negrea",
+      "Emily Oxley",
+      "Phuong Pham",
+      "Sin Wang Chong",
+      "George Siemens"
+    ],
+    "abstract": "Although the field of Artificial Intelligence in Education (AIEd) has a substantial history as a research domain, never before has the rapid evolution of AI applications in education sparked such prominent public discourse. Given the already rapidly growing AIEd literature base in higher education, now is the time to ensure that the field has a solid research and conceptual grounding. This review of reviews is the first comprehensive meta review to explore the scope and nature of AIEd in higher education (AIHEd) research, by synthesising secondary research (e.g., systematic reviews), indexed in the Web of Science, Scopus, ERIC, EBSCOHost, IEEE Xplore, ScienceDirect and ACM Digital Library, or captured through snowballing in OpenAlex, ResearchGate and Google Scholar. Reviews were included if they synthesised applications of AI solely in formal higher or continuing education, were published in English between 2018 and July 2023, were journal articles or full conference papers, and if they had a method section 66 publications were included for data extraction and synthesis in EPPI Reviewer, which were predominantly systematic reviews (66.7%), published by authors from North America (27.3%), conducted in teams (89.4%) in mostly domestic-only collaborations (71.2%). Findings show that these reviews mostly focused on AIHEd generally (47.0%) or Profiling and Prediction (28.8%) as thematic foci, however key findings indicated a predominance of the use of Adaptive Systems and Personalisation in higher education. Research gaps identified suggest a need for greater ethical, methodological, and contextual considerations within future research, alongside interdisciplinary approaches to AIHEd application. Suggestions are provided to guide future primary and secondary research.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 13,
+    "archivo": "13. Artificial intelligence for education and its emphasis on assessment and adversity quotient a review.pdf",
+    "titulo": "Artificial intelligence for education and its emphasis on assessment and adversity quotient: a review",
+    "autores": [
+      "Jyoti Mudkanna Gavhane",
+      "Reena Pagare"
+    ],
+    "abstract": "Purpose The purpose of this study was to analyze importance of artificial intelligence (AI) in education and its emphasis on assessment and adversity quotient (AQ). Design/methodology/approach - The study utilizes a systematic literature review of over 141 journal papers and psychometric tests to evaluate AQ. Thematic analysis of quantitative and qualitative studies explores domains of AI in education. Findings - Results suggest that assessing the AQ of students with the help of AI techniques is necessary. Education is a vital tool to develop and improve natural intelligence, and this survey presents the discourse use of AI techniques and behavioral strategies in the education sector of the recent era. The study proposes a conceptual framework of AQ with the help of assessment style for higher education undergraduates. Originality/value - Research on AQ evaluation in the Indian context is still emerging, presenting a potential avenue for future research. Investigating the relationship between AQ and academic performance among Indian students is a crucial area of research. This can provide insights into the role of AQ in academic motivation, persistence and success in different academic disciplines and levels of education. AQ evaluation offers valuable insights into how individuals deal with and overcome challenges. The findings of this study have implications for higher education institutions to prepare for future challenges and better equip students with necessary skills for success. The papers reviewed related to AI for education opens research opportunities in the field of psychometrics, educational assessment and the evaluation of AQ.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 14,
+    "archivo": "14. A comprehensive exploration of artificial intelligence competence frameworks for.pdf",
+    "titulo": "A comprehensive exploration of artificial intelligence competence frameworks for educators: A critical review",
+    "autores": [
+      "Tamar Mikeladze",
+      "Paulien C. Meijer",
+      "Roald P. Verhoeff"
+    ],
+    "abstract": "Recent literature underscores the need for teachers to develop AI competencies with a recognition of the current lack of well-defined competence frameworks. This critical review investigates teachers' Artificial Intelligence (AI) competence frameworks (AI CFTs), analysing their strengths, weaknesses and practical applications for researchers, educators and policymakers. It identifies five distinct types of AI CFTs within Competence Construct Claims (Child, S., & Shaw, S. 2023). A conceptual approach to validating competence frameworks. Research Matters: A Cambridge University Press & Assessment publication, 35, 27-40.), each addressing the complexities of AI in its early stages. Notably, frameworks derived from empirical data offer detailed descriptions of competencies, while those based on conceptual models provide broader overviews. Highlighting the need for further empirical research, this review helps identify and understand existing approaches to teacher AI competence development and paves the way for integrating AI CFTs into teacher education, ultimately enhancing educators' preparedness to harness AI in their teaching practices.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 15,
+    "archivo": "15. A Systematic Review of Generative AI for Teaching and Learning Practice.pdf",
+    "titulo": "A Systematic Review of Generative AI for Teaching and Learning Practice",
+    "autores": [
+      "Bayode Ogunleye",
+      "Kudirat Ibilola Zakariyyah",
+      "Oluwaseun Ajao",
+      "Olakunle Olayinka",
+      "Hemlata Sharma"
+    ],
+    "abstract": "The use of generative artificial intelligence (GenAI) in academia is a subjective and hotly debated topic. Currently, there are no agreed guidelines towards the usage of GenAI systems in higher education (HE) and, thus, it is still unclear how to make effective use of the technology for teaching and learning practice. This paper provides an overview of the current state of research on GenAI for teaching and learning in HE. To this end, this study conducted a systematic review of relevant studies indexed by Scopus, using the preferred reporting items for systematic reviews and meta-analyses (PRISMA) guidelines. The search criteria revealed a total of 625 research papers, of which 355 met the final inclusion criteria. The findings from the review showed the current state and the future trends in documents, citations, document sources/authors, keywords, and co-authorship. The research gaps identified suggest that while some authors have looked at understanding the detection of AI-generated text, it may be beneficial to understand how GenAI can be incorporated into supporting the educational curriculum for assessments, teaching, and learning delivery. Furthermore, there is a need for additional interdisciplinary, multidimensional studies in HE through collaboration. This will strengthen the awareness and understanding of students, tutors, and other stakeholders, which will be instrumental in formulating guidelines, frameworks, and policies for GenAI usage.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 16,
+    "archivo": "16. Generative Artificial Intelligence in Tertiary Education Assessment Redesign Principles and Considerations.pdf",
+    "titulo": "Generative Artificial Intelligence in Tertiary Education: Assessment Redesign Principles and Considerations",
+    "autores": [
+      "Che Yee Lye",
+      "Lyndon Lim"
+    ],
+    "abstract": "The emergence of generative artificial intelligence (AI) such as ChatGPT has sparked significant assessment concerns within tertiary education. Assessment concerns have largely revolved around academic integrity issues among students, such as plagiarism and cheating. Nonetheless, it is also critical to consider that generative AI models trained on information retrieved from the Internet could produce biased and discriminatory outputs, and hallucination issues in large language models upon which generative AI acts provide made-up and untruthful outputs. This article considers the affordances and challenges of generative AI specific to assessments within tertiary education. It illustrates considerations for assessment redesign with the existence of generative AI and proposes the Against, Avoid and Adopt (AAA) principle to rethink and redesign assessments. It argues that more generative AI tools will emerge exponentially, and hence, engaging in an arms race against generative AI and policing the use of these technologies may not address the fundamental issues in assessments.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 17,
+    "archivo": "17. A Systematic Review of AI-Driven Educational Assessment in STEM Education.pdf",
+    "titulo": "A Systematic Review of AI-Driven Educational Assessment in STEM Education",
+    "autores": [
+      "Fan Ouyang",
+      "Tuan Anh Dinh",
+      "Weiqi Xu"
+    ],
+    "abstract": "Artificial intelligence (AI), as an emerging technology, has been widely used in STEM education to promote the educational assessment. Although AI-driven educational assessment has the potential to assess students' learning automatically and reduce the workload of instructors, there is still a lack of review works to holistically examine the field of AI-driven educational assessment, especially in the STEM education context. To gain an overview of the application of AI-driven educational assessment in STEM education, this research conducted a systematic review based on 17 empirical research published from 2011 January to 2023 April. Specifically, this review examined the functions, algorithms, and effects of AI applications in STEM educational assessment. The results clarified three main functions of AI-driven educational assessment, namely academic performance assessment, learning status assessment, and instructional quality assessment. Moreover, the systematic review found that both traditional algorithms (e.g., natural language processing, machine learning) and advanced algorithms (e.g., deep learning, neural fuzzy systems) were applied in STEM educational assessment. Furthermore, the educational and technological effects of applying AI-driven educational assessment in STEM education were revealed. Based on the results, this research proposed educational and technological implications to guide the future practice and research of AI-driven educational assessment in STEM education.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 18,
+    "archivo": "18. Transforming Education A Comprehensive Review of Generative Artificial Intelligence in Educational Settings through Bibliometric and Content Analysis.pdf",
+    "titulo": "Transforming Education: A Comprehensive Review of Generative Artificial Intelligence in Educational Settings through Bibliometric and Content Analysis",
+    "autores": [
+      "Zied Bahroun",
+      "Chiraz Anane",
+      "Vian Ahmed",
+      "Andrew Zacca"
+    ],
+    "abstract": "In the ever-evolving era of technological advancements, generative artificial intelligence (GAI) emerges as a transformative force, revolutionizing education. This review paper, guided by the PRISMA framework, presents a comprehensive analysis of GAI in education, synthesizing key insights from a selection of 207 research papers to identify research gaps and future directions in the field. This study begins with a content analysis that explores GAI's transformative impact in specific educational domains, including medical education and engineering education. The versatile applications of GAI encompass assessment, personalized learning support, and intelligent tutoring systems. Ethical considerations, interdisciplinary collaboration, and responsible technology use are highlighted, emphasizing the need for transparent GAI models and addressing biases. Subsequently, a bibliometric analysis of GAI in education is conducted, examining prominent AI tools, research focus, geographic distribution, and interdisciplinary collaboration. ChatGPT emerges as a dominant GAI tool, and the analysis reveals significant and exponential growth in GAI research in 2023. Moreover, this paper identifies promising future research directions, such as GAI-enhanced curriculum design and longitudinal studies tracking its long-term impact on learning outcomes. These findings provide a comprehensive understanding of GAI's potential in reshaping education and offer valuable insights to researchers, educators, and policymakers interested in the intersection of GAI and education.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 19,
+    "archivo": "19. What Is the Impact of ChatGPT on Education A Rapid Review of the  Literature.pdf",
+    "titulo": "What Is the Impact of ChatGPT on Education? A Rapid Review of the Literature",
+    "autores": [
+      "Chung Kwan Lo"
+    ],
+    "abstract": "An artificial intelligence-based chatbot, ChatGPT, was launched in November 2022 and is capable of generating cohesive and informative human-like responses to user input. This rapid review of the literature aims to enrich our understanding of ChatGPT's capabilities across subject domains, how it can be used in education, and potential issues raised by researchers during the first three months of its release (i.e., December 2022 to February 2023). A search of the relevant databases and Google Scholar yielded 50 articles for content analysis (i.e., open coding, axial coding, and selective coding). The findings of this review suggest that ChatGPT's performance varied across subject domains, ranging from outstanding (e.g., economics) and satisfactory (e.g., programming) to unsatisfactory (e.g., mathematics). Although ChatGPT has the potential to serve as an assistant for instructors (e.g., to generate course materials and provide suggestions) and a virtual tutor for students (e.g., to answer questions and facilitate collaboration), there were challenges associated with its use (e.g., generating incorrect or fake information and bypassing plagiarism detectors). Immediate action should be taken to update the assessment methods and institutional policies in schools and universities. Instructor training and student education are also essential to respond to the impact of ChatGPT on the educational environment.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  },
+  {
+    "id": 20,
+    "archivo": "20. Systematic review of research on artificial intelligence applications in higher education where are the educators.pdf",
+    "titulo": "Systematic review of research on artificial intelligence applications in higher education - where are the educators?",
+    "autores": [
+      "Olaf Zawacki-Richter",
+      "Victoria I. Marín",
+      "Melissa Bond",
+      "Franziska Gouverneur"
+    ],
+    "abstract": "According to various international reports, Artificial Intelligence in Education (AIEd) is one of the currently emerging fields in educational technology. Whilst it has been around for about 30 years, it is still unclear for educators how to make pedagogical advantage of it on a broader scale, and how it can actually impact meaningfully on teaching and learning in higher education. This paper seeks to provide an overview of research on AI applications in higher education through a systematic review. Out of 2656 initially identified publications for the period between 2007 and 2018, 146 articles were included for final synthesis, according to explicit inclusion and exclusion criteria. The descriptive results show that most of the disciplines involved in AIEd papers come from Computer Science and STEM, and that quantitative methods were the most frequently used in empirical studies. The synthesis of results presents four areas of AIEd applications in academic support services, and institutional and administrative services: 1. profiling and prediction, 2. assessment and evaluation, 3. adaptive systems and personalisation, and 4. intelligent tutoring systems. The conclusions reflect on the almost lack of critical reflection of challenges and risks of AIEd, the weak connection to theoretical pedagogical perspectives, and the need for further exploration of ethical and educational approaches in the application of AIEd in higher education.",
+    "fuente": {
+      "titulo": "automatica",
+      "autores": "automatica",
+      "abstract": "automatica"
+    }
+  }
+]
