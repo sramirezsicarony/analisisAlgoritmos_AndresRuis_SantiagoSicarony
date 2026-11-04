@@ -149,7 +149,10 @@ def pagina_similitud():
     if resumen:
         st.subheader("Comparación de algoritmos")
         df = pd.DataFrame(resumen)
-        st.bar_chart(df.pivot(index="Par", columns="Algoritmo", values="Similitud"), stack=False)
+        st.bar_chart(df.pivot(index="Par", columns="Algoritmo", values="Similitud"),
+                     x_label="Par de artículos", y_label="Similitud (sin unidades)", stack=False)
+        st.caption("Un valor mayor indica mayor similitud según cada algoritmo. Los métodos "
+                   "clásicos usan valores entre 0 y 1; el coseno de embeddings puede variar entre −1 y 1.")
 
     if len(ids) == 2:
         st.subheader("Paso a paso para el par seleccionado")
@@ -388,8 +391,12 @@ def pagina_seguimiento():
     c1, c2 = st.columns([1, 1])
     c1.dataframe(df, hide_index=True, width="stretch")
     grafica = (alt.Chart(df.rename(columns={"Counting Sort": "Término"}))
-               .mark_bar().encode(x="Frecuencia:Q", y=alt.Y("Término:N", sort="-x")))
+               .mark_bar().encode(
+                   x=alt.X("Frecuencia:Q", title="Frecuencia (n.º de apariciones)"),
+                   y=alt.Y("Término:N", title="Término del abstract", sort="-x")))
     c2.altair_chart(grafica, width="stretch")
+    c2.caption("La frecuencia cuenta las apariciones de cada término en los abstracts de los "
+               "documentos seleccionados.")
     st.caption("Los empates pueden aparecer en distinto orden entre algoritmos (Bucket Sort "
                "conserva el orden de inserción dentro de cada cubeta); la secuencia de "
                "frecuencias es idéntica.")
@@ -398,7 +405,10 @@ def pagina_seguimiento():
         no_vacias = [(i, t) for i, t in enumerate(tam) if t]
         st.write(f"{len(tam)} cubetas, {len(no_vacias)} no vacías; la primera recibe "
                  f"{tam[0]} de {len(pares)} términos ({100 * tam[0] / len(pares):.1f} %).")
-        st.bar_chart(pd.DataFrame(no_vacias, columns=["cubeta", "términos"]).set_index("cubeta"))
+        st.bar_chart(pd.DataFrame(no_vacias, columns=["cubeta", "términos"]).set_index("cubeta"),
+                     x_label="Índice de cubeta", y_label="Cantidad de términos distintos")
+        st.caption("Cada barra cuenta los términos distintos asignados a una cubeta según su "
+                   "frecuencia. Solo se muestran las cubetas no vacías.")
     with st.expander("Caracterización del corpus"):
         st.dataframe(pd.DataFrame(ordenamiento.caracterizacion()), hide_index=True, width="stretch")
 
