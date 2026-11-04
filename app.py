@@ -29,10 +29,36 @@ from src.similitud.comparador import (ALGORITMOS, CLASICOS, IA, matriz_similitud
                                       modelo_tfidf, tokens_clasicos, tokens_ia)
 from src.similitud.embeddings import cargar_modelo, coseno, euclidiana
 
-st.set_page_config(page_title="Análisis de algoritmos - Bibliometría", page_icon="📚",
-                   layout="wide")
+st.set_page_config(page_title="Análisis de algoritmos - Bibliometría",
+                   page_icon=":material/account_tree:", layout="wide")
 
-CORPUS = list(cargar_corpus())
+ESTILO = """
+<style>
+[data-testid="stDecoration"] {display: none;}
+.block-container {max-width: 1180px; padding-top: 2.5rem;}
+.stApp h1, .stApp h2, .stApp h3 {letter-spacing: -0.015em; font-weight: 600;}
+.stApp h1 {font-size: 2rem; line-height: 1.2;}
+.stApp h2 {font-size: 1.5rem; padding-bottom: .5rem; border-bottom: 1px solid #e3e3df;
+           margin-bottom: .6rem;}
+.stApp h3 {font-size: 1.1rem; padding-top: 1.4rem;}
+.encabezado-sup {font-size: .74rem; text-transform: uppercase; letter-spacing: .12em;
+                 color: #6b7075; margin-bottom: .25rem;}
+[data-testid="stMetric"] {border: 1px solid #e3e3df; border-radius: 6px;
+                          padding: .8rem 1rem; background: #ffffff;}
+[data-testid="stMetricLabel"] p {font-size: .8rem; color: #6b7075;}
+[data-testid="stMetricValue"] {font-size: 1.6rem; font-weight: 500;}
+[data-testid="stSidebar"] {border-right: 1px solid #e3e3df;}
+[data-testid="stSidebar"] [role="radiogroup"] label {padding: .25rem 0;}
+.marca-lateral {font-weight: 600; font-size: .95rem; margin: .2rem 0 1rem 0;}
+.stTabs [data-baseweb="tab-list"] {gap: 1.2rem;}
+.stTabs [data-baseweb="tab"] {padding-left: 0; padding-right: 0;}
+mark {background: #e6edf3; color: inherit; padding: 0 .15em; border-radius: 2px;}
+</style>
+"""
+st.markdown(ESTILO, unsafe_allow_html=True)
+
+with st.spinner("Cargando corpus..."):
+    CORPUS = list(cargar_corpus())
 POR_ID = {a["id"]: a for a in CORPUS}
 ETIQUETAS = {a["id"]: etiqueta_corta(a, 60) for a in CORPUS}
 
@@ -64,7 +90,8 @@ def resaltar(texto: str, posiciones: list[int], m: int, contexto: int = 60) -> l
 # Páginas
 # --------------------------------------------------------------------------- #
 def pagina_inicio():
-    st.title("📚 Análisis de algoritmos en el contexto de la bibliometría")
+    st.markdown('<p class="encabezado-sup">Corpus</p>', unsafe_allow_html=True)
+    st.title("Análisis de algoritmos en el contexto de la bibliometría")
     st.markdown(
         "Universidad del Quindío · Ingeniería de Sistemas y Computación · "
         "Análisis de Algoritmos 2026-2\n\n"
@@ -105,10 +132,12 @@ def pagina_similitud():
                    "varios segundos por cada par.")
 
     resumen = []
+    barra = st.progress(0.0, text="Calculando similitudes...")
     pestanas = st.tabs([ALGORITMOS[a] for a in algs])
-    for alg, tab in zip(algs, pestanas):
+    for paso, (alg, tab) in enumerate(zip(algs, pestanas)):
+        barra.progress(paso / max(len(algs), 1), text=f"Calculando {ALGORITMOS[alg]}...")
         with tab:
-            with st.spinner("Calculando..."):
+            with st.spinner(f"Calculando {ALGORITMOS[alg]}...", show_time=True):
                 M, detalles = matriz_similitud(ids, alg)
             st.dataframe(tabla_matriz(M, ids), width="stretch")
             st.dataframe(pd.DataFrame(detalles), hide_index=True, width="stretch")
@@ -116,6 +145,7 @@ def pagina_similitud():
                 resumen.append({"Algoritmo": ALGORITMOS[alg], "Par": f"{d['a']}-{d['b']}",
                                 "Similitud": d["similitud"],
                                 "Tipo": "IA" if alg in IA else "Clásico"})
+    barra.empty()
     if resumen:
         st.subheader("Comparación de algoritmos")
         df = pd.DataFrame(resumen)
@@ -153,7 +183,8 @@ def detalle_par(id_a: int, id_b: int):
                      width="stretch")
         st.write(f"Puntaje = {r.puntaje}; coincidencias = {r.coincidencias}; "
                  f"identidad = {r.identidad:.4f}")
-        rc = needleman_wunsch.alinear(tokens_clasicos(A), tokens_clasicos(B))
+        with st.spinner("Alineando los abstracts completos..."):
+            rc = needleman_wunsch.alinear(tokens_clasicos(A), tokens_clasicos(B))
         st.info(f"Abstracts completos: puntaje {rc.puntaje}, {rc.coincidencias} coincidencias, "
                 f"{rc.sustituciones} sustituciones, {rc.huecos} huecos → identidad "
                 f"{rc.identidad:.4f}")
@@ -174,7 +205,8 @@ def detalle_par(id_a: int, id_b: int):
         st.write("Intersección:", ", ".join(det["interseccion"]))
     with t5:
         for nombre in ("glove100", "fasttext300"):
-            m = cargar_modelo(nombre)
+            with st.spinner("Cargando modelo de embeddings..."):
+                m = cargar_modelo(nombre)
             u, usa, oova = m.vector_documento(tokens_ia(A))
             v, usb, oovb = m.vector_documento(tokens_ia(B))
             st.markdown(f"**{m.descripcion}**: A usa {len(usa)} palabras ({len(oova)} fuera "
@@ -193,7 +225,14 @@ def pagina_clustering():
                                default=["single", "complete", "average"],
                                format_func=lambda c: jerarquico.CRITERIOS[c])
     etiquetas = [etiqueta_corta(a, 55) for a in CORPUS]
-    resultados = {c: ejecutar(c, rep) for c in criterios}
+    resultados = {}
+    if criterios:
+        barra = st.progress(0.0, text="Agrupando...")
+        for paso, c in enumerate(criterios):
+            barra.progress(paso / len(criterios),
+                           text=f"Agrupando con {jerarquico.CRITERIOS[c]}...")
+            resultados[c] = ejecutar(c, rep)
+        barra.empty()
     if not resultados:
         return
     filas = []
@@ -210,8 +249,9 @@ def pagina_clustering():
                f"(CCC = {mejor['ccc']:.4f}).")
     for c, r in resultados.items():
         st.subheader(jerarquico.CRITERIOS[c])
-        fig = dibujar(r["fusiones"], etiquetas, f"{jerarquico.CRITERIOS[c]} · {REPRESENTACIONES[rep]}",
-                      r["etiquetas"])
+        with st.spinner("Dibujando dendrograma..."):
+            fig = dibujar(r["fusiones"], etiquetas,
+                          f"{jerarquico.CRITERIOS[c]} · {REPRESENTACIONES[rep]}", r["etiquetas"])
         st.pyplot(fig)
         with st.expander("Fusiones paso a paso y grupos"):
             st.dataframe(pd.DataFrame([vars(f) for f in r["fusiones"]]), hide_index=True)
@@ -236,7 +276,9 @@ def pagina_busqueda():
     totales = {n: {"ocurrencias": 0, "comparaciones": 0, "preproceso_ms": 0.0, "busqueda_ms": 0.0}
                for n in algs}
     hallazgos = []
-    for art in CORPUS:
+    barra = st.progress(0.0, text="Buscando en los abstracts...")
+    for idx, art in enumerate(CORPUS):
+        barra.progress(idx / len(CORPUS), text=f"Buscando en el artículo {art['id']}...")
         texto = art["abstract"].lower() if ignorar_mayus else art["abstract"]
         posiciones = None
         for nombre, f in algs.items():
@@ -249,6 +291,7 @@ def pagina_busqueda():
             posiciones = r.posiciones
         if posiciones:
             hallazgos.append((art, posiciones))
+    barra.empty()
     st.subheader("Rendimiento sobre los 20 abstracts")
     st.dataframe(pd.DataFrame([{"Algoritmo": n, **v} for n, v in totales.items()])
                  .style.format(precision=4), hide_index=True, width="stretch")
@@ -295,10 +338,14 @@ def pagina_busqueda():
 
     st.subheader("Benchmark: teoría vs. rendimiento observado")
     if st.button("Ejecutar experimentos"):
-        with st.spinner("Midiendo..."):
+        barra = st.progress(0.0, text="Midiendo tiempo vs. tamaño del texto (1/3)...")
+        with st.spinner("Ejecutando experimentos...", show_time=True):
             df_n = pd.DataFrame(benchmark.experimento_tamano_texto())
+            barra.progress(1 / 3, text="Midiendo tiempo vs. tamaño del patrón (2/3)...")
             df_m = pd.DataFrame(benchmark.experimento_tamano_patron())
+            barra.progress(2 / 3, text="Midiendo el peor caso (3/3)...")
             df_w = pd.DataFrame(benchmark.experimento_peor_caso())
+        barra.empty()
         st.markdown("**Tiempo de búsqueda vs. tamaño del texto n** (patrón 'assessment')")
         st.line_chart(df_n.pivot(index="n", columns="algoritmo", values="busqueda_ms"))
         st.markdown("**Tiempo de búsqueda vs. tamaño del patrón m**")
@@ -318,10 +365,16 @@ def pagina_seguimiento():
     reps = c2.select_slider("Repeticiones por medición", [10, 100, 500, 1000], value=100)
     docs = c3.select_slider("Documentos usados", [5, 10, 15, 20], value=20)
     ids = [a["id"] for a in CORPUS][:docs]
-    pares = ordenamiento.frecuencias_corpus(ids)
+    with st.spinner("Contando frecuencias..."):
+        pares = ordenamiento.frecuencias_corpus(ids)
     k = max(f for _, f in pares)
     st.write(f"n = **{len(pares)}** términos distintos · k = **{k}** (frecuencia máxima)")
-    medidas = {n: ordenamiento.medir(f, pares, reps) for n, f in ordenamiento.ALGORITMOS.items()}
+    medidas = {}
+    barra = st.progress(0.0, text="Midiendo algoritmos de ordenamiento...")
+    for paso, (n, f) in enumerate(ordenamiento.ALGORITMOS.items()):
+        barra.progress(paso / len(ordenamiento.ALGORITMOS), text=f"Midiendo {n} ({reps} repeticiones)...")
+        medidas[n] = ordenamiento.medir(f, pares, reps)
+    barra.empty()
     base = [f for _, f in medidas["Counting Sort"]["resultado"]]
     st.dataframe(pd.DataFrame([{
         "Algoritmo": n, "Promedio (ms)": m["promedio_ms"], "Mínimo (ms)": m["min_ms"],
@@ -359,7 +412,7 @@ PAGINAS = {
 }
 
 with st.sidebar:
-    st.title("Navegación")
+    st.markdown('<p class="marca-lateral">Navegación</p>', unsafe_allow_html=True)
     eleccion = st.radio("Sección", list(PAGINAS), label_visibility="collapsed")
     st.caption("Algoritmos implementados desde cero en Python. "
                "Ver docs/Documento_Tecnico.docx para el análisis completo.")
