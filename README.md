@@ -77,11 +77,38 @@ docs/                       Documento técnico, figuras y resultados en CSV
 
 ## 6. Despliegue
 
-**Streamlit Community Cloud** (gratis): entrar a https://share.streamlit.io con la cuenta de
-GitHub → *Create app* → *Deploy a public app from GitHub* → elegir este repositorio, la rama
-`main` y el archivo `app.py` → *Deploy*. Instala `requirements.txt` y usa los datos de `data/`.
+La aplicación está publicada en **Google Cloud Run**:
+https://analisis-algoritmos-1055040261530.us-central1.run.app
 
-**Docker**:
+Cloud Run construye la imagen con el `Dockerfile` (python:3.12-slim + `requirements.txt`,
+puerto 8501), la publica en una URL HTTPS y escala a cero cuando nadie la usa. Los datos de
+`data/` van dentro de la imagen, así que no se descarga nada en el servidor.
+
+Se desplegó desde **Cloud Shell** (consola de Google Cloud), con el proyecto
+`analisis-algoritmos-513706`:
+
+```bash
+gcloud config set project analisis-algoritmos-513706
+git clone https://github.com/sramirezsicarony/analisisAlgoritmos_AndresRuis_SantiagoSicarony.git
+cd analisisAlgoritmos_AndresRuis_SantiagoSicarony
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com
+
+# Solo la primera vez en un proyecto nuevo: permiso de compilación para la cuenta de servicio
+# por defecto (sin esto el despliegue falla con 403 storage.objects.get)
+gcloud projects add-iam-policy-binding analisis-algoritmos-513706 \
+    --member=serviceAccount:1055040261530-compute@developer.gserviceaccount.com \
+    --role=roles/run.builder
+
+gcloud run deploy analisis-algoritmos --source . --region us-central1 --port 8501 \
+    --memory 1Gi --timeout 3600 --session-affinity --allow-unauthenticated
+```
+
+`--timeout 3600` y `--session-affinity` son necesarios porque Streamlit mantiene un WebSocket
+abierto por usuario. Para publicar cambios: `git pull` en Cloud Shell y repetir el
+`gcloud run deploy` (crea una revisión nueva sin cortar el servicio).
+
+**Otras opciones.** Streamlit Community Cloud (https://share.streamlit.io → *Create app* →
+este repositorio, rama `main`, archivo `app.py`) o Docker en cualquier servicio de contenedores:
 
 ```bash
 docker build -t bibliometria .
