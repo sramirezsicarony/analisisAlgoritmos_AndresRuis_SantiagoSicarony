@@ -444,8 +444,54 @@ p("**Por qué probar contra librerías si no se pueden usar:** el enunciado proh
 p("**Documento técnico (scripts/generar_documento.py):** todos los números, tablas y figuras del "
   "documento se calculan ejecutando el código. Si cambias un algoritmo y vuelves a correr el "
   "script, el documento se actualiza solo.")
-p("**Despliegue:** local con streamlit run app.py; en internet con Streamlit Community Cloud "
-  "(necesita el proyecto en GitHub) o con el Dockerfile en cualquier servicio de contenedores.")
+p("**Despliegue:** local con streamlit run app.py; en internet con Google Cloud Run, en "
+  "https://analisis-algoritmos-1055040261530.us-central1.run.app (detalle en la sección "
+  "A.8.1).")
+
+h("A.8.1 Cómo fue el despliegue en Google Cloud Run (para explicarlo)", 2)
+p("**La idea en una frase:** se empaquetó la aplicación en un contenedor Docker y se le "
+  "entregó a Cloud Run, que lo ejecuta en los servidores de Google y lo publica en una URL "
+  "HTTPS. No se alquiló ni se configuró un servidor a mano.")
+p("**El recorrido, paso a paso:**")
+v("**1. Proyecto y facturación:** en console.cloud.google.com se creó el proyecto "
+  "analisis-algoritmos-513706 y se vinculó una cuenta de facturación (Cloud Run lo exige "
+  "aunque el uso quede en el nivel gratuito).")
+v("**2. Cloud Shell:** desde la terminal del navegador se clonó el repositorio de GitHub y "
+  "se activaron tres servicios: Cloud Run (ejecuta), Cloud Build (construye la imagen) y "
+  "Artifact Registry (guarda la imagen).")
+v("**3. Permiso:** el primer despliegue falló con un error 403 porque la cuenta de servicio"
+  " que compila no podía leer el código subido. Se le dio el rol roles/run.builder.")
+v("**4. Despliegue:** gcloud run deploy --source . construyó la imagen con el Dockerfile "
+  "(python:3.12-slim + requirements.txt + el proyecto), la publicó y devolvió la URL.")
+p("**Por qué Cloud Run y no un servidor (máquina virtual):** no hay sistema operativo que "
+  "mantener ni proceso que reiniciar; escala solo, incluso a cero instancias, así que se "
+  "paga solo por uso y una app de clase cabe en el nivel gratuito; y el Dockerfile "
+  "garantiza que en la nube corre exactamente el mismo entorno que se probó localmente.")
+p("**Preguntas probables:**")
+pregunta("¿Qué es un contenedor y para qué sirve el Dockerfile?",
+         "Un contenedor es un paquete con la aplicación, sus librerías y la versión de Python. El "
+         "Dockerfile es la receta: parte de python:3.12-slim, instala requirements.txt, copia el "
+         "proyecto y arranca streamlit run app.py en el puerto 8501. Así el entorno es idéntico en"
+         " cualquier máquina.")
+pregunta("¿Por qué --timeout 3600 y --session-affinity?",
+         "Streamlit no funciona con peticiones sueltas: mantiene un WebSocket abierto por usuario."
+         " Cloud Run corta las peticiones a los 5 minutos por defecto; con 1 hora y afinidad de "
+         "sesión cada usuario se queda en la misma instancia y no pierde su estado.")
+pregunta("¿Qué pasa si nadie usa la aplicación?",
+         "Cloud Run apaga las instancias (escala a cero) y no cobra. La siguiente visita tarda "
+         "unos segundos más mientras arranca el contenedor (arranque en frío).")
+pregunta("¿Cómo se actualiza si cambian el código?",
+         "git pull en Cloud Shell y el mismo gcloud run deploy. Se crea una revisión nueva y el "
+         "tráfico pasa a ella sin interrupción; se puede volver a la anterior si algo falla.")
+pregunta("¿Por qué el servidor no descarga GloVe y FastText (1,2 GB)?",
+         "Porque scripts/construir_embeddings.py los reduce al vocabulario del corpus y los guarda"
+         " en data/embeddings/ (menos de 2 MB). Esos archivos van en el repositorio y por tanto "
+         "dentro de la imagen.")
+pregunta("¿Qué fue el error 403 del primer intento?",
+         "En proyectos nuevos, la cuenta de servicio de Compute Engine que usa Cloud Build no "
+         "tiene permiso para leer el código que gcloud sube a Cloud Storage. Se solucionó dándole "
+         "el rol roles/run.builder, que incluye leer el código, escribir la imagen y escribir los "
+         "logs.")
 
 # ------------------------------------------------------------------ A.9
 h("A.9 Tabla resumen de complejidades (para memorizar)", 1)

@@ -1046,31 +1046,82 @@ p(f"**Discusión.** Bucket Sort es el más lento ({b_ms:.4f} ms, ≈{b_ms / min(
 # ----------------------------------------------------------------- 8
 doc.add_page_break()
 h("8. Requerimiento 4: despliegue, pruebas y uso de la aplicación", 1)
+p("**Aplicación publicada.** La aplicación está desplegada en Google Cloud Run y disponible"
+  " 24/7 en https://analisis-algoritmos-1055040261530.us-central1.run.app")
 p("**Ejecución local.** Requiere Python 3.10 o superior:")
 codigo("""python -m venv .venv
 .venv\\Scripts\\activate            (Windows)   |   source .venv/bin/activate   (Linux/Mac)
 pip install -r requirements.txt
 streamlit run app.py               # abre http://localhost:8501""")
-p("**Despliegue en la nube (Streamlit Community Cloud).** 1) Subir la carpeta del proyecto a un "
-  "repositorio de GitHub (incluye data/corpus.json y data/embeddings/, por lo que no se necesita "
-  "descargar modelos en el servidor). 2) En share.streamlit.io elegir 'New app', el repositorio, la "
-  "rama y el archivo app.py. 3) La plataforma instala requirements.txt y publica la aplicación en "
-  "una URL pública. También se incluye un Dockerfile para desplegar en cualquier servicio que "
-  "ejecute contenedores (Render, Railway, Azure, etc.).")
+p("**Despliegue en la nube (Google Cloud Run).** Cloud Run es el servicio de Google Cloud "
+  "que ejecuta contenedores sin administrar servidores: recibe el código, construye una "
+  "imagen con el Dockerfile del repositorio, la publica en una URL HTTPS y crea o apaga "
+  "instancias según las visitas (escala a cero cuando nadie la usa, por lo que el costo de "
+  "un proyecto académico queda dentro del nivel gratuito). El Dockerfile parte de "
+  "python:3.12-slim, instala requirements.txt (streamlit, pandas, numpy, matplotlib), copia"
+  " el proyecto y arranca streamlit run app.py en el puerto 8501. Como data/corpus.json y "
+  "data/embeddings/ vienen dentro del repositorio, la imagen ya trae el corpus y los "
+  "vectores GloVe y FastText reducidos: no se descargan modelos en el servidor.")
+p("Se desplegó desde Cloud Shell (la terminal de la consola de Google Cloud, en el "
+  "navegador), en el proyecto analisis-algoritmos-513706:")
+codigo("""# 1. Elegir el proyecto y traer el código
+gcloud config set project analisis-algoritmos-513706
+git clone https://github.com/sramirezsicarony/analisisAlgoritmos_AndresRuis_SantiagoSicarony.git
+cd analisisAlgoritmos_AndresRuis_SantiagoSicarony
+
+# 2. Activar Cloud Run, Cloud Build (construye la imagen) y Artifact Registry (la guarda)
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com
+
+# 3. Permiso de compilación para la cuenta de servicio por defecto (proyecto nuevo)
+gcloud projects add-iam-policy-binding analisis-algoritmos-513706 \\
+    --member=serviceAccount:1055040261530-compute@developer.gserviceaccount.com \\
+    --role=roles/run.builder
+
+# 4. Construir y desplegar
+gcloud run deploy analisis-algoritmos --source . --region us-central1 --port 8501 \\
+    --memory 1Gi --timeout 3600 --session-affinity --allow-unauthenticated""")
+p("**Qué hace cada opción del despliegue:**")
+viñeta("**--source .** sube la carpeta; Cloud Build construye la imagen con el Dockerfile y la "
+       "guarda en el repositorio de Artifact Registry cloud-run-source-deploy.")
+viñeta("**--region us-central1:** región de Iowa (EE. UU.), una de las de menor costo.")
+viñeta("**--port 8501:** el puerto en el que escucha Streamlit dentro del contenedor (el "
+       "Dockerfile lo fija con --server.port=8501).")
+viñeta("**--memory 1Gi:** memoria por instancia, suficiente para pandas, matplotlib y las "
+       "matrices de similitud y embeddings.")
+viñeta("**--timeout 3600 y --session-affinity:** Streamlit mantiene una conexión WebSocket "
+       "abierta por cada usuario. Con el límite por defecto (5 minutos) la sesión se cortaría; "
+       "con 1 hora y afinidad de sesión, cada usuario sigue conectado a la misma instancia y "
+       "conserva su estado.")
+viñeta("**--allow-unauthenticated:** la URL es pública, cualquiera la abre sin cuenta de Google.")
+p("**Incidente y solución.** El primer intento falló con el error 403 "
+  '"...-compute@developer.gserviceaccount.com does not have storage.objects.get access": en'
+  " los proyectos nuevos la cuenta de servicio de Compute Engine, que Cloud Build usa para "
+  "compilar, no tiene permiso para leer el código subido a Cloud Storage. Se resolvió "
+  "asignándole el rol roles/run.builder (paso 3) y repitiendo el despliegue, que terminó "
+  "con la revisión analisis-algoritmos-00001 sirviendo el 100 % del tráfico.")
+p("**Actualizar la aplicación.** Después de subir cambios a GitHub, en Cloud Shell: cd a la"
+  " carpeta, git pull y el mismo gcloud run deploy. Cloud Run crea una revisión nueva "
+  "(00002, 00003, ...) y le pasa el tráfico sin dejar la aplicación fuera de línea; si algo"
+  " falla, se puede volver a la revisión anterior desde la consola.")
+p("**Alternativas.** El mismo Dockerfile sirve para cualquier servicio de contenedores "
+  "(Render, Railway, Azure, AWS) y requirements.txt también permite publicar en Streamlit "
+  "Community Cloud (share.streamlit.io, eligiendo el repositorio, la rama main y app.py).")
 p("**Regenerar los datos y este documento.**")
 codigo("""python scripts/construir_corpus.py        # PDF -> data/corpus.json
 python scripts/construir_embeddings.py    # descarga GloVe/FastText (una vez) -> data/embeddings/
 python scripts/generar_documento.py       # -> docs/Documento_Tecnico.docx, figuras y CSV""")
 p("**Pruebas automáticas** (python -m pytest): casos clásicos con resultado conocido "
-  "(kitten/sitting = 3, GATTACA/GCATGCU = 0, π('ababaca')), comparación de KMP, Boyer-Moore (con y "
-  "sin sufijo bueno) y Rabin-Karp contra fuerza bruta en 2 000 textos aleatorios, verificación del "
-  "IDF contra scikit-learn y del clustering y la correlación cofenética contra SciPy para los "
-  "cuatro criterios, y verificación de que el corpus tiene los 20 artículos completos.")
+  "(kitten/sitting = 3, GATTACA/GCATGCU = 0, π('ababaca')), comparación de KMP, Boyer-Moore"
+  " (con y sin sufijo bueno) y Rabin-Karp contra fuerza bruta en 2 000 textos aleatorios, "
+  "verificación del IDF contra scikit-learn y del clustering y la correlación cofenética "
+  "contra SciPy para los cuatro criterios, y verificación de que el corpus tiene los 20 "
+  "artículos completos.")
 p("**Secciones de la aplicación.** Corpus (tabla de los 20 artículos con título, autores y "
-  "abstract); Req. 1 (selección dinámica de 2 o más artículos, matriz de similitud por algoritmo, "
-  "gráfica comparativa y paso a paso del par); Req. 2 (elección de representación y criterios, "
-  "dendrogramas, métricas y grupos); Req. 3 (búsqueda en los 20 abstracts con contexto resaltado, "
-  "trazas de los tres algoritmos con sus tablas, colisiones de Rabin-Karp y benchmark).")
+  "abstract); Req. 1 (selección dinámica de 2 o más artículos, matriz de similitud por "
+  "algoritmo, gráfica comparativa y paso a paso del par); Req. 2 (elección de "
+  "representación y criterios, dendrogramas, métricas y grupos); Req. 3 (búsqueda en los 20"
+  " abstracts con contexto resaltado, trazas de los tres algoritmos con sus tablas, "
+  "colisiones de Rabin-Karp y benchmark).")
 
 # ----------------------------------------------------------------- 8
 h("9. Declaración del uso de inteligencia artificial generativa", 1)
